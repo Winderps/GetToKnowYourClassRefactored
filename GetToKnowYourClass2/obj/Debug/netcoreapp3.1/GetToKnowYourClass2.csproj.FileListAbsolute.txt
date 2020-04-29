@@ -1,0 +1,13 @@
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\bin\Debug\netcoreapp3.1\GetToKnowYourClass2.exe
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\bin\Debug\netcoreapp3.1\GetToKnowYourClass2.deps.json
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\bin\Debug\netcoreapp3.1\GetToKnowYourClass2.runtimeconfig.json
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\bin\Debug\netcoreapp3.1\GetToKnowYourClass2.runtimeconfig.dev.json
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\bin\Debug\netcoreapp3.1\GetToKnowYourClass2.dll
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\bin\Debug\netcoreapp3.1\GetToKnowYourClass2.pdb
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\obj\Debug\netcoreapp3.1\GetToKnowYourClass2.csprojAssemblyReference.cache
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\obj\Debug\netcoreapp3.1\GetToKnowYourClass2.csproj.CoreCompileInputs.cache
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\obj\Debug\netcoreapp3.1\GetToKnowYourClass2.AssemblyInfoInputs.cache
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\obj\Debug\netcoreapp3.1\GetToKnowYourClass2.AssemblyInfo.cs
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\obj\Debug\netcoreapp3.1\GetToKnowYourClass2.dll
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\obj\Debug\netcoreapp3.1\GetToKnowYourClass2.pdb
+C:\Users\Winderps\source\repos\GetToKnowYourClass2\GetToKnowYourClass2\obj\Debug\netcoreapp3.1\GetToKnowYourClass2.genruntimeconfig.cache
