@@ -58,9 +58,7 @@ namespace GetToKnowYourClass2
                         string band = StudentInfoInput($"Please enter {name + (name.EndsWith('s') ? "'" : "'s")} favorite band: ");
                         ClassInfo.Add(new StudentInfo(name, hometown, food, band));
                         ClassInfo = ClassInfo.OrderBy(x => x.Name).ToList();
-                        int i = 0;
-                        Console.WriteLine("Current class roster:");
-                        ClassInfo.ForEach(x => Console.WriteLine($"{++i}. {x.Name}"));
+                        PrintClassRoster();
                         break;
                     }
                     else if (mode.Equals("fetch"))
@@ -80,6 +78,13 @@ namespace GetToKnowYourClass2
             }
         }
 
+        private static void PrintClassRoster()
+        {
+            int i = 0;
+            Console.WriteLine("Current class roster:");
+            ClassInfo.ForEach(x => Console.WriteLine($"{++i}. {x.Name}"));
+        }
+
         private static void LookupStudent()
         {
             Console.Write($"Please enter the name or student number of someone you would like to look up (1-{ClassInfo.Count}): ");
@@ -90,16 +95,9 @@ namespace GetToKnowYourClass2
             {
                 try
                 {
-                    try
-                    {
-                        int studentId = int.Parse(input);
-                        studentInfo = GetStudentInfo(studentId - 1);
-                        validInput = true;
-                    }
-                    catch (IndexOutOfRangeException)
-                    {
-                        Console.WriteLine("That student does not exist!");
-                    }
+                    int studentId = int.Parse(input);
+                    studentInfo = GetStudentInfo(studentId - 1);
+                    validInput = true;
                 }
                 catch (FormatException)
                 {
@@ -112,29 +110,7 @@ namespace GetToKnowYourClass2
                     {
                         if (possibleResults.Count > 1)
                         {
-                            bool validInput2 = false;
-                            while (!validInput2)
-                            {
-                                try
-                                {
-                                    Console.WriteLine("Multiple matches found!");
-                                    for (int i = 0; i < possibleResults.Count; i++)
-                                    {
-                                        Console.WriteLine($"{i + 1}. {possibleResults[i].Name}");
-                                    }
-                                    Console.Write("Please enter the number of the student you want: ");
-                                    studentInfo = possibleResults[int.Parse(Console.ReadLine()) - 1];
-                                    validInput2 = true;
-                                }
-                                catch (IndexOutOfRangeException)
-                                {
-                                    Console.WriteLine("That was too high of a number!");
-                                }
-                                catch (FormatException)
-                                {
-                                    Console.WriteLine("That wasn't a number at all!");
-                                }
-                            }
+                            studentInfo = SelectPossibleMatch(possibleResults);
                         }
                         else
                         {
@@ -143,33 +119,67 @@ namespace GetToKnowYourClass2
                         validInput = true;
                     }
                 }
+                catch (IndexOutOfRangeException)
+                {
+                    Console.WriteLine("That student does not exist!");
+                }
             }
-            bool validInput3 = false;
-            while (!validInput3)
+            PrintStudentInfo(studentInfo);
+        }
+
+        private static void PrintStudentInfo(StudentInfo studentInfo)
+        {
+            bool validInput = false;
+            while (!validInput)
             {
                 Console.Write($"What information would you like on {studentInfo.Name}? Please enter hometown, food, band, or all: ");
 
                 switch (Console.ReadLine().ToLower())
                 {
                     case "hometown":
-                        validInput3 = true;
+                        validInput = true;
                         Console.WriteLine($"{studentInfo.Name} is from {studentInfo.Hometown}");
                         break;
                     case "food":
-                        validInput3 = true;
+                        validInput = true;
                         Console.WriteLine($"{studentInfo.Name} likes to eat {studentInfo.FavoriteFood}");
                         break;
                     case "band":
-                        validInput3 = true;
+                        validInput = true;
                         Console.WriteLine($"{studentInfo.Name} listens to {studentInfo.FavoriteBand}");
                         break;
                     case "all":
                         Console.WriteLine($"{studentInfo.Name} is from {studentInfo.Hometown}, they like to eat {studentInfo.FavoriteFood} and listen to {studentInfo.FavoriteBand}");
-                        validInput3 = true;
+                        validInput = true;
                         break;
                     default:
                         Console.WriteLine("Oops! I couldn't understand that, try again!");
                         break;
+                }
+            }
+        }
+
+        private static StudentInfo SelectPossibleMatch(List<StudentInfo> possibleResults)
+        {
+            while (true) //this only works because we return when we receive good input
+            {
+                try
+                {
+                    Console.WriteLine("Multiple matches found!");
+                    for (int i = 0; i < possibleResults.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {possibleResults[i].Name}");
+                    }
+                    Console.Write("Please enter the number of the student you want: ");
+                    return possibleResults[int.Parse(Console.ReadLine()) - 1];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    Console.WriteLine("That was too high of a number!");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("That wasn't a number at all!");
                 }
             }
         }
